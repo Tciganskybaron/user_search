@@ -1,10 +1,18 @@
 import { defineConfig } from 'vite';
 import path from 'path';
 import react from '@vitejs/plugin-react';
+import unfonts from 'unplugin-fonts/vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    unfonts({
+      google: {
+        families: [{ name: 'Montserrat', styles: 'wght@400;600' }],
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '~app': path.resolve('src/app'),
