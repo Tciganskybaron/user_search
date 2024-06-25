@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     unfonts({
       google: {
-        families: [{ name: 'Montserrat', styles: 'wght@400;600' }],
+        families: [{ name: 'Montserrat', styles: 'wght@400;600;700' }],
       },
     }),
   ],

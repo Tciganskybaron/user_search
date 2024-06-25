@@ -1,0 +1,15 @@
+@use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+@use '~shared/styles/mixins.scss' as *;
+
+.header {
+  @include flexbox;
+  @include justify-content(space-between);
+  @include align-items(center);
+
+  .user {
+    font-weight: $font-weight-regular;
+    font-size: $text-md;
+    color: $black;
+  }
+}

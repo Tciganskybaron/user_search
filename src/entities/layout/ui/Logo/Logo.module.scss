@@ -1,0 +1,8 @@
+@use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+
+.logo {
+  font-weight: $font-weight-bold;
+  font-size: $text-lg;
+  color: $red;
+}
