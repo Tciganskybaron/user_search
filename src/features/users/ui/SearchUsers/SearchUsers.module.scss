@@ -1,0 +1,26 @@
+@use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+@use '~shared/styles/mixins.scss' as *;
+
+.search {
+  @include flexbox;
+  @include flex-direction(column);
+  width: 240px;
+
+  .search-label {
+    margin-bottom: $spacing-14;
+    font-weight: $font-weight-semibold;
+    font-size: $text-md;
+    line-height: $line-height;
+    color: $black-signal;
+  }
+
+  .search-input {
+    border: 0.09375rem solid $grey-ultra-light;
+    border-radius: $radius-8;
+    padding: $spacing-16;
+    width: 16rem;
+    height: 2.875rem;
+    background: $white;
+  }
+}

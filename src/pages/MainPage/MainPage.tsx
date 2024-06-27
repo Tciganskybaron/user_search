@@ -1,9 +1,17 @@
+import { SearchUsers } from '~features/users/ui/SearchUsers/SearchUsers';
 import styles from './MainPage.module.scss';
 import { Header } from '~widgets/layout/ui';
 export default function MainPage() {
+  function onSerchUsers(value: string) {
+    console.log(value);
+  }
+
   return (
-    <body className={styles.body}>
+    <div className={styles['main-page']}>
       <Header />
-    </body>
+      <aside>
+        <SearchUsers onSerchUsers={onSerchUsers} />
+      </aside>
+    </div>
   );
 }
