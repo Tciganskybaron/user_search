@@ -1,0 +1,63 @@
+@use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+@use '~shared/styles/mixins.scss' as *;
+
+.card {
+  border-radius: $radius-10;
+  width: 15rem;
+  height: 4.375rem;
+  @include box-shadow-1;
+  background: $white;
+  margin-bottom: $spacing-18;
+  @include flexbox;
+
+  &:hover {
+    @include box-shadow-4;
+  }
+
+  &:active {
+    background-color: $grey-light;
+  }
+
+  .box-img {
+    width: 4.375rem;
+    height: 4.375rem;
+    border-right: $border-1 solid $grey-light;
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+
+    .img {
+      width: 1.85rem;
+      height: 1.25rem;
+    }
+  }
+
+  .info {
+    flex: 1;
+    padding-left: $spacing-16;
+    @include flexbox;
+    @include flex-direction(column);
+    @include justify-content(center);
+
+    &.selected {
+      background-color: $grey-light;
+      border-top-left-radius: $radius-0;
+      border-bottom-left-radius: $radius-0;
+      border-top-right-radius: $radius-10;
+      border-bottom-right-radius: $radius-10;
+    }
+
+    .name {
+      font-weight: $font-weight-semibold;
+      font-size: $text-sm;
+      color: $black;
+    }
+
+    .mail {
+      font-weight: $font-weight-regular;
+      font-size: $text-sm;
+      color: $grey;
+    }
+  }
+}

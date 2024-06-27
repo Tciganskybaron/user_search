@@ -1,7 +1,11 @@
 @use './colors.scss' as *;
 
-@mixin box-shadow {
-  box-shadow: 0 0 10px 0 rgba($black, 0.01);
+@mixin box-shadow-1 {
+  box-shadow: 0 0 10px 0 rgba($black, 0.1);
+}
+
+@mixin box-shadow-4 {
+  box-shadow: 0 0 10px 0 rgba($black, 0.4);
 }
 
 @mixin flexbox {
