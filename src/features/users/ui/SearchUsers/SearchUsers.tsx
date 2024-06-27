@@ -1,6 +1,7 @@
 import { SearchUsersProps } from './SearchUsers.props';
 import styles from './SearchUsers.module.scss';
 import { ChangeEvent, useEffect, useState } from 'react';
+import text from '~shared/constants/text';
 
 export const SearchUsers = ({
   onSerchUsers,
@@ -23,10 +24,10 @@ export const SearchUsers = ({
   };
   return (
     <div className={styles.search} {...props}>
-      <label className={styles['search-label']}>Поиск сотрудников</label>
+      <label className={styles['search-label']}>{text.SEARCH_EMPLOYEE}</label>
       <input
         className={styles['search-input']}
-        placeholder="В ведите id или имя"
+        placeholder={text.PLACEHOLDER_SEARH}
         type="text"
         onChange={handleInputChange}
       />

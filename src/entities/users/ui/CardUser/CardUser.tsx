@@ -1,5 +1,6 @@
 import { CardUserProps } from './CardUser.props';
 import styles from './CardUser.module.scss';
+import text from '~shared/constants/text';
 
 export const CardUser = ({ ...props }: CardUserProps): JSX.Element => {
   return (
@@ -12,17 +13,17 @@ export const CardUser = ({ ...props }: CardUserProps): JSX.Element => {
           <h2 className={styles.name}>Ervin Howell</h2>
           <div className={styles.contact}>
             <p>
-              <strong>email:</strong>
+              <strong>{`${text.EMAIL}:`}</strong>
               <a href="mailto:Shanna@melissa.tv">Shanna@melissa.tv</a>
             </p>
             <p>
-              <strong>phone:</strong>
+              <strong>{`${text.PHONE}:`}</strong>
               <a href="tel:010-692-6593">010-692-6593 x09125</a>
             </p>
           </div>
         </div>
         <div className={styles.bio}>
-          <h3>О себе:</h3>
+          <h3>{`${text.ABOUT_MYSELF}:`}</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
