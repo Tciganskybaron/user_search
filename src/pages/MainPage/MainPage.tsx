@@ -1,7 +1,8 @@
 import { SearchUsers, SmallCardUser } from '~features/users/ui';
 import styles from './MainPage.module.scss';
 import { Header } from '~widgets/layout/ui';
-import { CardUser } from '~entities/users/ui/CardUser/CardUser';
+import { CardUser } from '~entities/users/ui';
+
 export default function MainPage() {
   function onSerchUsers(value: string) {
     console.log(value);
@@ -13,10 +14,11 @@ export default function MainPage() {
   return (
     <div className={styles['main-page']}>
       <Header />
-      <aside style={{ display: 'flex' }}>
-        <div>
+      <div className={styles['main-box']}>
+        <aside className={styles['search-box']}>
           <SearchUsers onSerchUsers={onSerchUsers} />
           <ul>
+            <label className={styles['search-label']}>Результаты</label>
             {users.map((user, i) => (
               <SmallCardUser
                 key={user.mail}
@@ -26,11 +28,11 @@ export default function MainPage() {
               />
             ))}
           </ul>
-        </div>
-        <div>
+        </aside>
+        <section className={styles['info-box']}>
           <CardUser />
-        </div>
-      </aside>
+        </section>
+      </div>
     </div>
   );
 }

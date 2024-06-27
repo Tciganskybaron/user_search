@@ -6,6 +6,7 @@
   @include flexbox;
   @include justify-content(space-between);
   @include align-items(center);
+  padding-bottom: $spacing-30;
 
   .user {
     font-weight: $font-weight-regular;

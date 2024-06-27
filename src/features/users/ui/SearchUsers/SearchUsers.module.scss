@@ -6,6 +6,7 @@
   @include flexbox;
   @include flex-direction(column);
   width: 15rem;
+  padding-bottom: 30px;
 
   .search-label {
     margin-bottom: $spacing-14;

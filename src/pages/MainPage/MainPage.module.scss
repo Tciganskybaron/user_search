@@ -1,7 +1,35 @@
 @use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+@use '~shared/styles/mixins.scss' as *;
 
 .main-page {
-  padding: $spacing-50;
-  width: 80.375rem;
-  margin: auto;
+  margin: $spacing-50;
+  width: 79.125rem;
+
+  .main-box {
+    @include flexbox;
+    border-radius: $radius-10;
+    height: 35.9375rem;
+    @include box-shadow-1;
+    background: $grey-near-white;
+
+    .search-box {
+      padding: $spacing-30;
+
+      .search-label {
+        padding-bottom: $spacing-20;
+
+        font-weight: $font-weight-semibold;
+        font-size: $text-md;
+        line-height: $line-height;
+        color: $black-signal;
+      }
+    }
+
+    .info-box {
+      padding: $spacing-30;
+      border-left: $border-1 solid $grey-light;
+      background: $grey-near-white;
+    }
+  }
 }
