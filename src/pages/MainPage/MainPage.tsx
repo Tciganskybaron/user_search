@@ -1,4 +1,4 @@
-import { SearchUsers } from '~features/users/ui/SearchUsers/SearchUsers';
+import { SearchUsers } from '~features/users/ui';
 import styles from './MainPage.module.scss';
 import { Header } from '~widgets/layout/ui';
 export default function MainPage() {
