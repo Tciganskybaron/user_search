@@ -1,0 +1,69 @@
+@use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+@use '~shared/styles/mixins.scss' as *;
+
+.card {
+  @include flexbox;
+  gap: $spacing-60;
+
+  .box-img {
+    width: 26.5rem;
+    border: $border-1 solid $grey-light;
+
+    @include flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    .img {
+      width: 8.75rem;
+      height: 6.25rem;
+    }
+  }
+  .info {
+    @include flexbox;
+    @include flex-direction(column);
+    width: 27.5rem;
+    gap: $spacing-20;
+    .details {
+      h2,
+      p {
+        padding-bottom: $spacing-10;
+      }
+
+      .name {
+        font-weight: $font-weight-semibold;
+        font-size: $text-md;
+        line-height: $line-height;
+        color: $black;
+      }
+
+      .contact p strong {
+        font-weight: $font-weight-semibold;
+        font-size: $text-sm;
+        line-height: $line-height;
+        color: $black;
+        padding-right: $spacing-10;
+      }
+
+      .contact p a {
+        font-weight: $font-weight-regular;
+        color: $grey;
+      }
+    }
+
+    .bio {
+      h3 {
+        padding-bottom: $spacing-26;
+        font-weight: $font-weight-semibold;
+        font-size: $text-md;
+        line-height: $line-height;
+        color: $black-signal;
+      }
+
+      p {
+        font-weight: $font-weight-regular;
+        font-size: $text-sm;
+        color: $grey;
+      }
+    }
+  }
+}
