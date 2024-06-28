@@ -2,7 +2,10 @@ import { CardEmployeeProps } from './CardEmployee.props';
 import styles from './CardEmployee.module.scss';
 import text from '~shared/constants/text';
 
-export const CardEmployee = ({ ...props }: CardEmployeeProps): JSX.Element => {
+export const CardEmployee = ({
+  employee,
+  ...props
+}: CardEmployeeProps): JSX.Element => {
   return (
     <article className={styles.card} {...props}>
       <div className={styles['box-img']}>
@@ -10,15 +13,15 @@ export const CardEmployee = ({ ...props }: CardEmployeeProps): JSX.Element => {
       </div>
       <div className={styles.info}>
         <div className={styles.details}>
-          <h2 className={styles.name}>Ervin Howell</h2>
+          <h2 className={styles.name}>{employee.username}</h2>
           <div className={styles.contact}>
             <p>
               <strong>{`${text.EMAIL}:`}</strong>
-              <a href="mailto:Shanna@melissa.tv">Shanna@melissa.tv</a>
+              <a href={`mailto:${employee.email}`}>{employee.email}</a>
             </p>
             <p>
               <strong>{`${text.PHONE}:`}</strong>
-              <a href="tel:010-692-6593">010-692-6593 x09125</a>
+              <a href={`tel:${employee.phone}`}>{employee.phone}</a>
             </p>
           </div>
         </div>

@@ -48,16 +48,18 @@
       border-bottom-right-radius: $radius-10;
     }
 
-    .name {
+    .username {
       font-weight: $font-weight-semibold;
       font-size: $text-sm;
       color: $black;
+      word-break: break-word;
     }
 
-    .mail {
+    .email {
       font-weight: $font-weight-regular;
       font-size: $text-sm;
       color: $grey;
+      word-break: break-word;
     }
   }
 }

@@ -2,25 +2,31 @@ import { SearchEmployeesProps } from './SearchEmployees.props';
 import styles from './SearchEmployees.module.scss';
 import { ChangeEvent, useEffect, useState } from 'react';
 import text from '~shared/constants/text';
+import { searcInput } from '~shared/helpers/serchInput';
+import { Search } from '~shared/types/search';
 
 export const SearchEmployees = ({
-  onSerchUsers,
+  setSearh,
   ...props
 }: SearchEmployeesProps): JSX.Element => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState<Search>({
+    id: [],
+    username: [],
+  });
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      onSerchUsers(searchTerm);
+      setSearh(searchTerm);
     }, 1500);
 
     return () => {
       clearTimeout(handler);
     };
-  }, [searchTerm, onSerchUsers]);
+  }, [searchTerm, setSearh]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
+    const { id, username } = searcInput(event.target.value);
+    setSearchTerm({ id, username });
   };
   return (
     <div className={styles.search} {...props}>

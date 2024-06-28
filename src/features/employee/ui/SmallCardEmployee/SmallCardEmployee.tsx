@@ -3,13 +3,20 @@ import styles from './SmallCardEmployee.module.scss';
 import cn from 'classnames';
 
 export const SmallCardEmployee = ({
-  name,
-  mail,
+  employee,
   selected,
+  setEmployee,
   ...props
-}: SmallCardEmployeeProps): JSX.Element => {
+}: SmallCardEmployeeProps): JSX.Element | null => {
+  if (!employee) {
+    return null;
+  }
   return (
-    <li className={styles.card} {...props}>
+    <li
+      className={styles.card}
+      {...props}
+      onClick={() => setEmployee(employee)}
+    >
       <div className={styles['box-img']}>
         <img className={styles.img} src="/image.png" alt="фото клиента" />
       </div>
@@ -18,8 +25,8 @@ export const SmallCardEmployee = ({
           [styles.selected]: selected,
         })}
       >
-        <label className={styles.name}>{name}</label>
-        <div className={styles.mail}>{mail}</div>
+        <label className={styles.username}>{employee.username}</label>
+        <div className={styles.email}>{employee.email}</div>
       </div>
     </li>
   );
