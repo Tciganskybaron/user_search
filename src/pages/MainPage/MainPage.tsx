@@ -11,6 +11,13 @@ export default function MainPage() {
   const users = [
     { name: 'Bret', mail: 'Sincere@april.biz' },
     { name: 'Antonette', mail: 'Shanna@melissa.tv' },
+    { name: 'Antonette', mail: 'Shanna@melissa.tv' },
+    { name: 'Antonette', mail: 'Shanna@melissa.tv' },
+    { name: 'Antonette', mail: 'Shanna@melissa.tv' },
+    { name: 'Antonette', mail: 'Shanna@melissa.tv' },
+    { name: 'Antonette', mail: 'Shanna@melissa.tv' },
+    { name: 'Antonette', mail: 'Shanna@melissa.tv' },
+    { name: 'Antonette', mail: 'Shanna@melissa.tv' },
   ];
   return (
     <div className={styles['main-page']}>
@@ -18,8 +25,8 @@ export default function MainPage() {
       <div className={styles['main-box']}>
         <aside className={styles['search-box']}>
           <SearchEmployees onSerchUsers={onSerchUsers} />
-          <ul>
-            <label className={styles['search-label']}>{text.RESULTS}</label>
+          <label className={styles['search-label']}>{text.RESULTS}</label>
+          <ul className={styles['search-box-ul']}>
             {users.map((user, i) => (
               <SmallCardEmployee
                 key={user.mail}

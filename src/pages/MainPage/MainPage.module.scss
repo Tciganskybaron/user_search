@@ -15,6 +15,8 @@
 
     .search-box {
       padding: $spacing-30;
+      @include flexbox;
+      @include flex-direction(column);
 
       .search-label {
         padding-bottom: $spacing-20;
@@ -23,6 +25,27 @@
         font-size: $text-md;
         line-height: $line-height;
         color: $black-signal;
+      }
+
+      .search-box-ul {
+        overflow-y: auto;
+        height: 24.25rem;
+
+        &::-webkit-scrollbar {
+          width: 0.375rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: $grey-light;
+          border-radius: $radius-10;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: $transparent;
+        }
+      }
+      .search-box-ul > * {
+        margin-right: $spacing-10; /* Добавлено смещение для содержимого */
       }
     }
 

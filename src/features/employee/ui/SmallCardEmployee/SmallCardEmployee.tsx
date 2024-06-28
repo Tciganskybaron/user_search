@@ -1,5 +1,5 @@
 import { SmallCardEmployeeProps } from './SmallCardEmployee.props';
-import styles from './SmallCardUser.module.scss';
+import styles from './SmallCardEmployee.module.scss';
 import cn from 'classnames';
 
 export const SmallCardEmployee = ({
