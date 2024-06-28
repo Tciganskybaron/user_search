@@ -8,23 +8,21 @@ import { useEmployeeStore } from '~features/employee/model/useEmployeeStore';
 export const SearchEmployees = ({
   ...props
 }: SearchEmployeesProps): JSX.Element => {
-  console.log('render SearchEmployees');
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const { setSearch } = useEmployeeStore();
+  const { fetchResults } = useEmployeeStore();
 
   useEffect(() => {
     const handler = setTimeout(() => {
       const { id, username } = searcInput(searchTerm);
-      setSearch({ id, username });
+      fetchResults({ id, username });
     }, 1500);
 
     return () => {
       clearTimeout(handler);
     };
-  }, [searchTerm, setSearch]);
+  }, [searchTerm, fetchResults]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log('event.target.value', event.target.value);
     setSearchTerm(event.target.value);
   };
 
@@ -35,7 +33,6 @@ export const SearchEmployees = ({
         className={styles['search-input']}
         placeholder={text.PLACEHOLDER_SEARH}
         type="text"
-        // value={searchTerm}
         onChange={handleInputChange}
       />
     </div>
