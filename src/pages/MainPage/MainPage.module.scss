@@ -3,8 +3,8 @@
 @use '~shared/styles/mixins.scss' as *;
 
 .main-page {
-  margin: $spacing-50;
-  width: 79.125rem;
+  margin: $spacing-50 auto;
+  width: 80rem;
 
   .main-box {
     @include flexbox;
