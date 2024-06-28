@@ -1,13 +1,13 @@
-import { SmallCardUserProps } from './SmallCardUser.props';
+import { SmallCardEmployeeProps } from './SmallCardEmployee.props';
 import styles from './SmallCardUser.module.scss';
 import cn from 'classnames';
 
-export const SmallCardUser = ({
+export const SmallCardEmployee = ({
   name,
   mail,
   selected,
   ...props
-}: SmallCardUserProps): JSX.Element => {
+}: SmallCardEmployeeProps): JSX.Element => {
   return (
     <li className={styles.card} {...props}>
       <div className={styles['box-img']}>

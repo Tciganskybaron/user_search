@@ -1,4 +1,4 @@
-export interface SmallCardUserProps
+export interface SmallCardEmployeeProps
   extends React.DetailedHTMLProps<
     React.LiHTMLAttributes<HTMLLIElement>,
     HTMLLIElement

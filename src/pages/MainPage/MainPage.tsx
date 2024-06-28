@@ -1,7 +1,7 @@
-import { SearchUsers, SmallCardUser } from '~features/users/ui';
+import { SearchEmployees, SmallCardEmployee } from '~features/employee/ui';
 import styles from './MainPage.module.scss';
 import { Header } from '~widgets/layout/ui';
-import { CardUser } from '~entities/users/ui';
+import { CardEmployee } from '~entities/employee/ui';
 import text from '~shared/constants/text';
 
 export default function MainPage() {
@@ -17,11 +17,11 @@ export default function MainPage() {
       <Header />
       <div className={styles['main-box']}>
         <aside className={styles['search-box']}>
-          <SearchUsers onSerchUsers={onSerchUsers} />
+          <SearchEmployees onSerchUsers={onSerchUsers} />
           <ul>
             <label className={styles['search-label']}>{text.RESULTS}</label>
             {users.map((user, i) => (
-              <SmallCardUser
+              <SmallCardEmployee
                 key={user.mail}
                 name={user.name}
                 mail={user.mail}
@@ -31,7 +31,7 @@ export default function MainPage() {
           </ul>
         </aside>
         <section className={styles['info-box']}>
-          <CardUser />
+          <CardEmployee />
         </section>
       </div>
     </div>

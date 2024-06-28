@@ -1,12 +1,12 @@
-import { SearchUsersProps } from './SearchUsers.props';
-import styles from './SearchUsers.module.scss';
+import { SearchEmployeesProps } from './SearchEmployees.props';
+import styles from './SearchEmployees.module.scss';
 import { ChangeEvent, useEffect, useState } from 'react';
 import text from '~shared/constants/text';
 
-export const SearchUsers = ({
+export const SearchEmployees = ({
   onSerchUsers,
   ...props
-}: SearchUsersProps): JSX.Element => {
+}: SearchEmployeesProps): JSX.Element => {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {

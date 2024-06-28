@@ -1,8 +1,8 @@
-import { CardUserProps } from './CardUser.props';
-import styles from './CardUser.module.scss';
+import { CardEmployeeProps } from './CardEmployee.props';
+import styles from './CardEmployee.module.scss';
 import text from '~shared/constants/text';
 
-export const CardUser = ({ ...props }: CardUserProps): JSX.Element => {
+export const CardEmployee = ({ ...props }: CardEmployeeProps): JSX.Element => {
   return (
     <article className={styles.card} {...props}>
       <div className={styles['box-img']}>
