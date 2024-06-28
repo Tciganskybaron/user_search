@@ -1,13 +1,15 @@
 import { SmallCardEmployeeProps } from './SmallCardEmployee.props';
 import styles from './SmallCardEmployee.module.scss';
 import cn from 'classnames';
+import { useEmployeeStore } from '~features/employee/model/useEmployeeStore';
 
 export const SmallCardEmployee = ({
   employee,
   selected,
-  setEmployee,
   ...props
 }: SmallCardEmployeeProps): JSX.Element | null => {
+  const { setEmployee } = useEmployeeStore();
+
   if (!employee) {
     return null;
   }

@@ -7,5 +7,4 @@ export interface SmallCardEmployeeProps
   > {
   employee: Employee;
   selected: boolean;
-  setEmployee: React.Dispatch<React.SetStateAction<Employee | undefined>>;
 }

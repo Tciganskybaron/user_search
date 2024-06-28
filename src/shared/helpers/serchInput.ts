@@ -9,7 +9,9 @@ export const searcInput = (value: string): Search => {
     if (/^\d+$/.test(trimmedItem)) {
       id.push(trimmedItem);
     } else {
-      username.push(trimmedItem);
+      if (trimmedItem !== '') {
+        username.push(trimmedItem);
+      }
     }
   });
 

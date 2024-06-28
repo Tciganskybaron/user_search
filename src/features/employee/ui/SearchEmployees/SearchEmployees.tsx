@@ -3,31 +3,31 @@ import styles from './SearchEmployees.module.scss';
 import { ChangeEvent, useEffect, useState } from 'react';
 import text from '~shared/constants/text';
 import { searcInput } from '~shared/helpers/serchInput';
-import { Search } from '~shared/types/search';
+import { useEmployeeStore } from '~features/employee/model/useEmployeeStore';
 
 export const SearchEmployees = ({
-  setSearh,
   ...props
 }: SearchEmployeesProps): JSX.Element => {
-  const [searchTerm, setSearchTerm] = useState<Search>({
-    id: [],
-    username: [],
-  });
+  console.log('render SearchEmployees');
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const { setSearch } = useEmployeeStore();
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      setSearh(searchTerm);
+      const { id, username } = searcInput(searchTerm);
+      setSearch({ id, username });
     }, 1500);
 
     return () => {
       clearTimeout(handler);
     };
-  }, [searchTerm, setSearh]);
+  }, [searchTerm, setSearch]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { id, username } = searcInput(event.target.value);
-    setSearchTerm({ id, username });
+    console.log('event.target.value', event.target.value);
+    setSearchTerm(event.target.value);
   };
+
   return (
     <div className={styles.search} {...props}>
       <label className={styles['search-label']}>{text.SEARCH_EMPLOYEE}</label>
@@ -35,6 +35,7 @@ export const SearchEmployees = ({
         className={styles['search-input']}
         placeholder={text.PLACEHOLDER_SEARH}
         type="text"
+        // value={searchTerm}
         onChange={handleInputChange}
       />
     </div>
