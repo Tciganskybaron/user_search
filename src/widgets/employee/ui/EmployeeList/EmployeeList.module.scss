@@ -26,6 +26,11 @@
   }
 }
 
+.loading {
+  @include flexbox;
+  @include justify-content(center);
+}
+
 .search-box-ul > * {
   margin-right: $spacing-10; /* Добавлено смещение для содержимого */
 }
