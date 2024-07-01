@@ -1,0 +1,52 @@
+@use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+@use '~shared/styles/mixins.scss' as *;
+
+.preloader {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+  @include position(relative);
+  width: 6.25rem;
+  height: 6.25rem;
+
+  .dot {
+    @include position(absolute);
+    width: 0.625rem;
+    height: 0.625rem;
+    background-color: $red;
+    border-radius: $radius-50;
+    animation: rotate 1.5s linear infinite;
+
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.214s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.428s;
+    }
+    &:nth-child(4) {
+      animation-delay: -0.642s;
+    }
+    &:nth-child(5) {
+      animation-delay: -0.856s;
+    }
+    &:nth-child(6) {
+      animation-delay: -1.07s;
+    }
+    &:nth-child(7) {
+      animation-delay: -1.284s;
+    }
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg) translate(35px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translate(35px) rotate(-360deg);
+    }
+  }
+}

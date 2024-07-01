@@ -157,3 +157,20 @@
   }
   align-self: $value;
 }
+
+@mixin position($value: static) {
+  @if $value == static {
+    position: static;
+  } @else if $value == relative {
+    position: relative;
+  } @else if $value == absolute {
+    position: absolute;
+  } @else if $value == fixed {
+    position: fixed;
+  } @else if $value == sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  } @else {
+    position: $value;
+  }
+}
