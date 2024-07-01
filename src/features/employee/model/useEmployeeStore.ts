@@ -48,7 +48,7 @@ export const useEmployeeStore = create<EmployeeState>((set) => ({
       set({ employees });
       set((state) => ({
         employee: state.employee
-          ? employees.includes(state.employee)
+          ? employees.some((emp) => emp.email === state.employee?.email)
             ? state.employee
             : null
           : state.employee,
