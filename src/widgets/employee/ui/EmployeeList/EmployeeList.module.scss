@@ -6,6 +6,12 @@
   overflow-y: auto;
   height: 24.25rem;
 
+  .search-not-found {
+    font-weight: $font-weight-regular;
+    font-size: $text-sm;
+    color: $grey;
+  }
+
   &::-webkit-scrollbar {
     width: 0.375rem;
   }

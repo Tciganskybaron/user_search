@@ -6,6 +6,7 @@ import { searchApi } from '~features/employee/api';
 interface EmployeeState {
   employee: Employee | null;
   employees: Employee[];
+  notFound: boolean;
   loading: boolean;
   errorMessage: string | null;
   setEmployee: (employees: Employee) => void;
@@ -16,6 +17,7 @@ interface EmployeeState {
 export const useEmployeeStore = create<EmployeeState>((set) => ({
   employee: null,
   employees: [],
+  notFound: false,
   loading: false,
   errorMessage: null,
   setEmployee: (employee: Employee) => set({ employee }),
@@ -23,6 +25,7 @@ export const useEmployeeStore = create<EmployeeState>((set) => ({
   fetchResults: async (search) => {
     set({ loading: true });
     set({ errorMessage: null });
+    set({ notFound: false });
     try {
       const [searchRes, searchRes2] = await Promise.all([
         search.id.length > 0
@@ -42,7 +45,6 @@ export const useEmployeeStore = create<EmployeeState>((set) => ({
       );
 
       const employees = [...searchRes, ...uniqueSearchRes2];
-
       set({ employees });
       set((state) => ({
         employee: state.employee
@@ -51,6 +53,10 @@ export const useEmployeeStore = create<EmployeeState>((set) => ({
             : null
           : state.employee,
       }));
+
+      if (employees.length === 0) {
+        set({ notFound: true });
+      }
     } catch (error) {
       if (error instanceof Error) {
         set({

@@ -8,7 +8,6 @@ import text from '~shared/constants/text';
 
 export const EmployeeDetails = ({ ...props }: EmployeeDetailsProps) => {
   const { employee, errorMessage } = useEmployeeStore();
-
   return (
     <div
       {...props}
