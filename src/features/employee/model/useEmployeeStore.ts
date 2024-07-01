@@ -7,6 +7,7 @@ interface EmployeeState {
   employee: Employee | null;
   employees: Employee[];
   loading: boolean;
+  errorMessage: string | null;
   setEmployee: (employees: Employee) => void;
   setEmployees: (employees: Employee[]) => void;
   fetchResults: (search: Search) => void;
@@ -16,24 +17,31 @@ export const useEmployeeStore = create<EmployeeState>((set) => ({
   employee: null,
   employees: [],
   loading: false,
+  errorMessage: null,
   setEmployee: (employee: Employee) => set({ employee }),
   setEmployees: (employees) => set({ employees }),
   fetchResults: async (search) => {
     set({ loading: true });
+    set({ errorMessage: null });
     try {
-      let searchRes: Employee[] = [];
-      let searchRes2: Employee[] = [];
+      const [searchRes, searchRes2] = await Promise.all([
+        search.id.length > 0
+          ? fetch(searchApi.getUsersId(search.id)).then((res) => res.json())
+          : [],
+        search.username.length > 0
+          ? fetch(searchApi.getUsersName(search.username)).then((res) =>
+              res.json()
+            )
+          : [],
+      ]);
+      const emailSet = new Set(
+        searchRes.map((employee: Employee) => employee.email)
+      );
+      const uniqueSearchRes2 = searchRes2.filter(
+        (employee: Employee) => !emailSet.has(employee.email)
+      );
 
-      if (search.id.length > 0) {
-        const res = await fetch(searchApi.getUsersId(search.id));
-        searchRes = (await res.json()) as Employee[];
-      }
-
-      if (search.username.length > 0) {
-        const res2 = await fetch(searchApi.getUsersName(search.username));
-        searchRes2 = (await res2.json()) as Employee[];
-      }
-      const employees = searchRes.concat(searchRes2);
+      const employees = [...searchRes, ...uniqueSearchRes2];
 
       set({ employees });
       set((state) => ({
@@ -44,7 +52,13 @@ export const useEmployeeStore = create<EmployeeState>((set) => ({
           : state.employee,
       }));
     } catch (error) {
-      console.error('Failed to fetch results:', error);
+      if (error instanceof Error) {
+        set({
+          errorMessage: `Произошла ошибка cервера, зайдите на сайт позже`,
+        });
+      } else {
+        set({ errorMessage: 'Не известная ошибка, зайдите на сайт позже' });
+      }
     } finally {
       set({ loading: false });
     }

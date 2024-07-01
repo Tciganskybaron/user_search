@@ -8,7 +8,7 @@ export const searchApi = {
   },
   getUsersName: (query: string[]) => {
     const url = new URL(`${backendBaseUrl}/`);
-    query.forEach((name) => url.searchParams.append('name', name));
+    query.forEach((name) => url.searchParams.append('username', name));
     return url.toString();
   },
 };

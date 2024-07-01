@@ -1,0 +1,20 @@
+@use '~shared/styles/base.scss' as *;
+@use '~shared/styles/colors.scss' as *;
+
+.error {
+  padding: $spacing-16;
+  margin: $spacing-16 $spacing-0;
+  border: $border-1 solid $red;
+  background-color: $coral;
+  color: $red;
+  border-radius: $radius-8;
+
+  h2 {
+    margin: $spacing-0;
+    font-size: $text-md;
+  }
+
+  p {
+    margin: $spacing-10 $spacing-0;
+  }
+}
