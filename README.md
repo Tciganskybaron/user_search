@@ -95,3 +95,9 @@
 6. **Форматирование кода**: [Prettier](https://prettier.io/)
 7. **Предпроцессор CSS**: [Sass](https://sass-lang.com/)
 8. **Менеджер пакетов**: [npm](https://www.npmjs.com/)
+
+### Демонстрация
+
+<p align="left">
+ <img width="600" src="assets/demo.gif" alt="demo"/>
+</p>
