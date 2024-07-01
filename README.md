@@ -1,30 +1,97 @@
-# React + TypeScript + Vite
+## О проекте
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот проект представляет собой тестовое задание для позиции Frontend разработчика. Он включает в себя страницу поиска сотрудников с предпросмотром профиля.
 
-Currently, two official plugins are available:
+### Тестовое задание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Необходимо реализовать страницу поиска сотрудников с предпросмотром профиля.
 
-## Expanding the ESLint configuration
+Приложение состоит из одной страницы. Слева осуществляется поиск и отображение результатов, справа — отображается карточка пользователя с личными данными.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Готовый проект выложите на GitHub.
 
-- Configure the top-level `parserOptions` property like this:
+### Условия выполнения ТЗ:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+1. Можно искать как одного пользователя, так и нескольких (например, Bret, Antonette).
+2. Поиск должен работать по полю `id` и полю `username` либо `name`, на ваше усмотрение.
+3. При выборе способа получения пользователя(пользователей) и фильтрации учитывать, что их может быть больше 2000 человек.
+4. При изменении состояния в поиске, страница с профилем пользователя должна менять свое состояние, т.е. если открыт профиль пользователя и потом решили удалить все из строки поиска, очищается список найденных пользователей, и страница отображения профиля возвращается в исходное состояние.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Поиск
+
+В строке поиска пользователя необходимо реализовать запрос к API для получения необходимых юзеров. В случае если результат вернул ошибку (параметры запроса неверные, либо ошибка сервера), необходимо отобразить эту ошибку пользователю. После успешно выполненного запроса, необходимо отобразить полученного пользователя или пользователей в интерфейсе.
+
+### Макет
+
+- **Ссылка на макет**: [Figma](https://www.figma.com/)
+- **Шрифт**: [Montserrat](https://fonts.google.com/specimen/Montserrat)
+
+### Обязательно:
+
+1. SPA должно быть реализовано с использованием React.
+2. Необходимо создать основные компоненты.
+3. Использовать стейт менеджер.
+4. Стили должны быть написаны с помощью препроцессора SCSS.
+5. Во время всех запросов нужно сигнализировать пользователю через прелоадер, что происходит запрос.
+6. Использовать изоляцию стилей.
+
+### Документация API
+
+- **Базовый URL**: `https://jsonplaceholder.typicode.com`
+- **Получить пользователя по ID**: `GET /users?id=1`
+- **Получить нескольких пользователей по ID**: `GET /users?id=1&id=2`
+
+### Реализация
+
+- Для изоляции стилей используется `module.scss`.
+- Реализованы все условия ТЗ.
+- Добавьте GIF или скриншот для наглядности.
+
+### Установка и запуск
+
+1. **Клонировать репозиторий**:
+
+   ```sh
+   git clone https://github.com/your-repo-url.git
+   cd your-repo-directory
+   ```
+
+2. **Установить зависимости**:
+
+   ```sh
+   npm install
+   ```
+
+3. **Запустить сервер разработки**:
+
+   ```sh
+   npm run dev
+   ```
+
+4. **Собрать проект**:
+
+   ```sh
+   npm run build
+   ```
+
+5. **Проверить код**:
+
+   ```sh
+   npm run lint
+   ```
+
+6. **Отформатировать код**:
+   ```sh
+   npm run format
+   ```
+
+### Использованные технологии
+
+1. **Стейт менеджер**: [zustand](https://github.com/pmndrs/zustand)
+2. **Библиотека компонентов**: [React](https://reactjs.org/)
+3. **Компиляция и сборка**: [Vite](https://vitejs.dev/)
+4. **Язык программирования**: [TypeScript](https://www.typescriptlang.org/)
+5. **Линтер**: [ESLint](https://eslint.org/)
+6. **Форматирование кода**: [Prettier](https://prettier.io/)
+7. **Предпроцессор CSS**: [Sass](https://sass-lang.com/)
+8. **Менеджер пакетов**: [npm](https://www.npmjs.com/)
